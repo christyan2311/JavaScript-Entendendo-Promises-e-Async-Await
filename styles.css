@@ -15,51 +15,167 @@
 }
 
 body {
-    background-color: var(--background-color);
-    color: var(--text-color);
-    font-family: var(--font-family);
+  background-color: var(--background-color);
+  color: var(--text-color);
+  font-family: var(--font-family);
 
-    display: flex;
-    justify-content: center;
-    align-items: start;
+  display: flex;
+  justify-content: center;
+  align-items: start;
 
-    height: 100vh;
-    gap: 27px;
-    padding: 56px 0;
+  height: 100vh;
+  gap: 27px;
+  padding: 56px 0;
 }
 
 aside {
-    background-color: var(--itens-background);
-    border-radius: 10px;
-    padding: 40px 16px;
-    text-align: center;
+  background-color: var(--itens-background);
+  border-radius: 10px;
+  padding: 40px 16px;
+  text-align: center;
 }
 
 .Lista-links {
-    display: flex;
-    flex-direction: column;
-    gap: 40px;
-    margin-top: 80px;
-    align-items: center;
-    list-style-type: none;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  margin-top: 80px;
+  align-items: center;
+  list-style-type: none;
 }
 
 .Lista-links li a {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    align-items: center;
-    text-decoration: none;
-    color: var(--secondary-color);
-    font-size: 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+  text-decoration: none;
+  color: var(--secondary-color);
+  font-size: 22px;
 }
 
 .Lista-links li:first-of-type a {
-    color: var(--primary-color);
+  color: var(--primary-color);
 }
 
-.link-destaque{
-    border: 1px solid var(--primary-color);
-    border-radius: 8px;
-    padding: 12px 30px;
+.link-destaque {
+  border: 1px solid var(--primary-color);
+  border-radius: 8px;
+  padding: 12px 30px;
+}
+
+main {
+  background-color: var(--itens-background);
+  border-radius: 10px;
+  padding: 32px;
+  display: flex;
+  gap: 24px;
+}
+
+h2 {
+  font-size: 26px;
+  margin-bottom: 40px;
+  font-weight: 600;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+form div label {
+  font-size: 18px;
+  font-weight: 400;
+  display: block;
+  margin-bottom: 8px;
+}
+
+form div input,
+textarea {
+  width: 100%;
+  padding: 8px 16px;
+  background-color: var(--secondary-color);
+  border: none;
+  border-radius: 4px;
+  font-family: var(--font-family);
+  line-height: 22.5px;
+}
+
+form div input {
+  height: 39px;
+}
+
+texarea {
+  height: 161px;
+}
+
+.lista-tags li {
+  display: flex;
+  background-color: var(--secondary-color);
+  color: var(--background-color);
+  gap: 10px;
+  padding: 4px 8px;
+  border-radius: 4px;
+}
+
+.lista-tags {
+  display: flex;
+}
+
+.container-botoes {
+  display: flex;
+  gap: 24px;
+  justify-content: space-between;
+}
+
+.container-botoes button {
+  width: 50%;
+  padding: 12px 32px 12px 12px;
+  text-align: center;
+  border-radius: 8px;
+  font-family: var(--font-family);
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.botao-descartar {
+  background-color: var(--itens-background);
+  color: var(--primary-color);
+  border: 1px solid var(--primary-color);
+  position: relative;
+}
+
+.botao-descartar::after {
+  content: "";
+  background-image: url("./img/trash.svg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 15px;
+  height: 15px;
+  display: inline-block;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  margin-left: 8px;
+}
+
+.botao-publicar {
+  background-color: var(--primary-color);
+  color: var(--itens-background);
+  border: 1px solid var(--primary-color);
+  position: relative;
+}
+.botao-publicar::after {
+  content: "";
+  background-image: url("./img/arrow_forward2.svg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 15px;
+  height: 15px;
+  display: inline-block;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  margin-left: 8px;
 }
