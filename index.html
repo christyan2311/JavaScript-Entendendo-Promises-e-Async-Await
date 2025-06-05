@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE html>Add commentMore actions
 <html lang="pt-br">
 
 <head>
@@ -15,28 +15,35 @@
 
 <body>
     <aside>
-        <div class="logo">
-            <img src="./img/Logo.svg" alt="CodeConnect Logo">
-        </div>
+        <img src="./img/Logo.svg" alt="logo do codeconnect">
         <nav>
-            <ul class="Lista-links">
-                <li><a href="#" class="link-destaque">Publicar</a>
+            <ul class="lista-links">
+                <li>
+                    <a href="#" class="link-destaque">Publicar</a>
                 </li>
-                <li><a href="#">Feed
-                    <img src="./img/feed.svg" alt="Ícone de feed">
-                </a>
-                </li>
-                <li><a href="#">Perfil
-                        <img src="./img/account_circle.svg" alt="Ícone de perfil">
+                <li>
+                    <a href="#">
+                        <img src="./img/feed.svg">
+                        Feed
                     </a>
                 </li>
-                <li><a href="#c">Sobre Nós
-                    <img src="./img/info.svg" alt="Ícone de informações">
-                </a>
+                <li>
+                    <a href="#">
+                        <img src="./img/account_circle.svg">
+                        Perfil
+                    </a>
                 </li>
-                <li><a href="#">Sair
-                    <img src="./img/logout.svg" alt="Ícone de logout">
-                </a>
+                <li>
+                    <a href="#">
+                        <img src="./img/info.svg">
+                        Sobre nós
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <img src="./img/logout.svg">
+                        Sair
+                    </a>
                 </li>
             </ul>
         </nav>
@@ -47,44 +54,43 @@
             <div class="container-imagem">
                 <img src="./img/imagem1.png" alt="" class="main-imagem">
             </div>
-            
-            <button>Carregar Imagem</button>
+            <button id="upload-btn">Carregar imagem</button>
+            <input type="file" id="image-upload" accept="image/" style="display: none" />
             <div class="container-imagem-nome">
-                <p>imagem_projeto_png</p>
-                <img src="./img/close.svg" alt="">
+                <p>image_projeto.png</p>
+                <img src="./img/close.svg">
             </div>
         </div>
-
         <div class="container-descricao">
-        <h2>Novo projeto</h2>
-        <form>
+            <h2>Novo projeto</h2>
+            <form>
                 <div>
-                        <label for="nome">Nome do projeto</label>
-                        <input type="text" id="nome" name="nome" />
+                    <label for="nome">Nome do projeto</label>
+                    <input type="text" id="nome" name="nome" />
                 </div>
                 <div>
-                        <label for="descricao">Descricao</label>
-                        <textarea id="descricao" name="descricao"></textarea>
+                    <label for="descricao">Descricao</label>
+                    <textarea id="descricao" name="descricao"></textarea>
                 </div>
                 <div>
-                        <label for="categoria">Tags</label>
-                        <input type="text" id="categoria" name="categoria" />
+                    <label for="categoria">Tags</label>
+                    <input type="text" id="categoria" name="categoria" />
                 </div>
                 <ul class="lista-tags">
-                        <li>
-                                <p>Front-end</p>
-                                <img src="./img/close-black.svg">
-                        </li>
+                    <li>
+                        <p>Front-end</p>
+                        <img src="./img/close-black.svg">
+                    </li>
                 </ul>
                 <div class="container-botoes">
-                        <button class="botao-descartar">Descartar</button>
-                        <button class="botao-publicar">Publicar</button>
+                    <button class="botao-descartar">Descartar</button>
+                    <button class="botao-publicar">Publicar</button>
                 </div>
-        </form>
-</div>
+            </form>
+        </div>
     </main>
 
-    <script src="script.js"></script>
+    <script src="scripts.js"></script>
 </body>
 
 </html>
