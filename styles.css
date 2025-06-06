@@ -3,12 +3,9 @@
     --text-color: #E1E1E1;
     --primary-color: #81FE88;
     --secondary-color: #888888;
-    --tag-color: #171D1F; /* Mantido do original, mas não usado diretamente para background das tags agora */
+    --tag-color: #171D1F;
     --font-family: "Prompt", sans-serif;
     --itens-background: #171D1F;
-    --input-background: #0D1113; /* Fundo mais escuro para inputs e container de imagem */
-    --border-color-light: #2A3032; /* Para bordas sutis */
-    --tag-text-color: #0D1113; /* Cor do texto dentro das tags */
 }
 
 * {
@@ -23,27 +20,26 @@ body {
     font-family: var(--font-family);
 
     display: flex;
-    justify-content: center; /* Centraliza o conteúdo horizontalmente */
-    align-items: flex-start; /* Alinha o conteúdo ao topo */
+    justify-content: center;
+    align-items: start;
 
-    min-height: 100vh; /* Usa min-height para garantir que o body ocupe a altura total da viewport, mas permite que cresça */
+    height: 100vh;
     gap: 27px;
-    padding: 56px 0; /* Padding superior e inferior */
+    padding: 56px 0;
 }
 
-/* ASIDE - Menu Lateral */
 aside {
     background-color: var(--itens-background);
     border-radius: 10px;
+    height: 100%;
     padding: 40px 16px;
     text-align: center;
-    width: 200px; /* Largura aproximada baseada na imagem */
-    flex-shrink: 0; /* Impede que o aside encolha */
 }
 
 .lista-links {
     display: flex;
-    justify-content: space-between; 
+    flex-direction: column;
+    gap: 40px;
     margin-top: 80px;
     align-items: center;
     list-style-type: none;
@@ -51,16 +47,12 @@ aside {
 
 .lista-links li a {
     display: flex;
+    flex-direction: column;
     gap: 10px;
     align-items: center;
     text-decoration: none;
     color: var(--secondary-color);
     font-size: 22px;
-    transition: color 0.3s ease; /* Transição suave para o hover */
-}
-
-.lista-links li a:hover {
-    color: var(--primary-color);
 }
 
 .lista-links li:first-of-type a {
@@ -71,18 +63,14 @@ aside {
     border: 1px solid var(--primary-color);
     padding: 12px 30px;
     border-radius: 8px;
-    color: var(--primary-color) !important; /* Garante que a cor primária seja mantida */
 }
 
-/* MAIN - Área de Conteúdo Principal */
 main {
     background-color: var(--itens-background);
     border-radius: 10px;
     padding: 32px;
     display: flex;
     gap: 24px;
-    flex-grow: 1; /* Permite que o main ocupe o espaço disponível */
-    max-width: calc(100% - 200px - 27px - 56px); /* Largura máxima para desktop */
 }
 
 h2 {
@@ -94,8 +82,7 @@ h2 {
 form {
     display: flex;
     flex-direction: column;
-    gap: 24px;
-    flex-grow: 1; /* Permite que o formulário cresça */
+    gap: 24px
 }
 
 form div label {
@@ -109,161 +96,114 @@ form div input,
 textarea {
     width: 100%;
     padding: 8px 16px;
-    background-color: var(--input-background); /* Fundo mais escuro */
-    border: 1px solid var(--border-color-light); /* Borda sutil */
+    background-color: var(--secondary-color);
+    border: none;
     border-radius: 4px;
     font-family: var(--font-family);
     line-height: 22.5px;
-    color: var(--text-color); /* Garante que o texto seja visível */
 }
 
 form div input {
     height: 39px;
 }
 
-textarea {
+texarea {
     height: 161px;
-    resize: vertical; /* Permite redimensionamento vertical do textarea */
-}
-
-/* Seção de Tags */
-.lista-tags {
-    display: flex;
-    flex-wrap: wrap; /* Permite que as tags quebrem para a próxima linha */
-    gap: 8px; /* Espaçamento entre as tags */
-    list-style-type: none; /* Remove marcadores de lista */
-    margin-top: 8px; /* Espaçamento da input acima */
 }
 
 .lista-tags li {
     display: flex;
-    align-items: center;
-    background-color: var(--secondary-color); /* Usando secondary_color para o fundo da tag */
-    color: var(--tag-text-color); /* Texto mais escuro para as tags */
+    background-color: var(--secondary-color);
+    color: var(--background-color);
     gap: 10px;
     padding: 4px 8px;
     border-radius: 4px;
-    font-size: 14px;
-    font-weight: 500;
 }
 
-.lista-tags li span {
-    cursor: pointer;
-    font-weight: bold;
-    font-size: 16px;
-    line-height: 1; /* Alinha o 'x' corretamente */
-    color: var(--tag-text-color); /* Cor do 'x' */
+
+.lista-tags {
+    display: flex;
 }
 
-/* Seção de Botões */
 .container-botoes {
     display: flex;
     gap: 24px;
     justify-content: space-between;
-    margin-top: 24px; /* Adiciona espaço acima dos botões */
 }
 
 .container-botoes button {
     width: 50%;
-    padding: 12px 32px;
+    padding: 12px 32px 12px 12px;
     text-align: center;
     border-radius: 8px;
     font-family: var(--font-family);
     font-size: 18px;
     font-weight: 500;
-    cursor: pointer;
-    display: flex; /* Usa flex para alinhar ícone e texto */
-    justify-content: center;
-    align-items: center;
-    gap: 8px; /* Espaço entre texto e ícone */
-    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
 }
 
 .botao-descartar {
     background-color: var(--itens-background);
     color: var(--primary-color);
     border: 1px solid var(--primary-color);
-}
-
-.botao-descartar:hover {
-    background-color: rgba(129, 254, 136, 0.1); /* Efeito de hover sutil */
+    position: relative;
 }
 
 .botao-descartar::after {
-    content: '';
-    background-image: url("./img/trash.svg"); /* Assumindo que trash.svg está na pasta img */
+    content: "";
+    background-image: url("./img/trash.svg");
     background-size: contain;
     background-repeat: no-repeat;
-    width: 18px;
-    height: 18px;
+    width: 15px;
+    height: 15px;
     display: inline-block;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    margin-left: 8px;
 }
 
 .botao-publicar {
     background-color: var(--primary-color);
     color: var(--background-color);
     border: none;
-}
-
-.botao-publicar:hover {
-    filter: brightness(1.1); /* Levemente mais claro no hover */
+    position: relative;
 }
 
 .botao-publicar::after {
-    content: '';
-    background-image: url("./img/arrow_forward2.svg"); /* Assumindo que arrow_forward2.svg está na pasta img */
+    content: "";
+    background-image: url("../img/arrow_forward2.svg");
     background-size: contain;
     background-repeat: no-repeat;
-    width: 18px;
-    height: 18px;
+    width: 15px;
+    height: 15px;
     display: inline-block;
-    filter: invert(1); /* Inverte a cor do ícone se ele for claro e o fundo for escuro */
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    margin-left: 8px;
 }
 
-/* Seção Direita - Upload e Pré-visualização da Imagem */
 .container-descricao {
-    /* Esta classe se refere à parte do formulário à esquerda, no layout flex do 'main' */
-    width: 422px; /* Largura fixa para a seção do formulário no desktop */
-    flex-shrink: 0;
+    width: 422px;
 }
 
 .main-imagem {
     border-radius: 8px;
-    height: 100%; /* Isso se aplicaria ao elemento img dentro do container-imagem, se fosse direto */
+    height: 100%;
     object-fit: cover;
 }
 
 .container-imagem {
-    /* Esta é a caixa cinza com a pré-visualização da imagem */
-    background-color: var(--input-background); /* Fundo mais escuro para o container */
-    border: 1px solid var(--border-color-light); /* Borda sutil */
-    border-radius: 8px;
+    height: 368px;
     padding: 24px 16px;
-    height: 368px; /* Altura fixa baseada na imagem */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between; /* Distribui o espaço entre os itens internos */
-    flex-grow: 1; /* Permite que cresça em largura */
-}
-
-.container-imagem img {
-    max-width: 100%;
-    max-height: 250px; /* Ajusta a altura máxima para caber no container com outros elementos */
-    object-fit: contain;
-    display: block;
-    margin: 0 auto;
-    border-radius: 4px; /* Leve border-radius para a imagem em si */
-}
-
-.container-upload-imagem {
-    width: 100%; /* Garante que a seção de upload ocupe a largura total */
+    background-color: var(--secondary-color);
+    border-radius: 8px;
 }
 
 .container-upload-imagem button {
     margin: 16px 0 8px 0;
     background-color: var(--itens-background);
-    border: 1px solid var(--border-color-light); /* Usando border-color-light */
+    border: 1px solid var(--secondary-color);
     border-radius: 8px;
     color: var(--secondary-color);
     width: 100%;
@@ -272,27 +212,21 @@ textarea {
     font-family: var(--font-family);
     font-weight: 600;
     font-size: 18px;
-    cursor: pointer;
-    display: flex; /* Usa flex para alinhamento de ícone e texto */
-    justify-content: center;
-    align-items: center;
-    gap: 8px;
-    transition: background-color 0.3s ease, border-color 0.3s ease;
-}
-
-.container-upload-imagem button:hover {
-    background-color: rgba(23, 29, 31, 0.5); /* Efeito de hover sutil */
-    border-color: var(--secondary-color);
+    position: relative;
 }
 
 .container-upload-imagem button::after {
-    content: '';
-    background-image: url("./img/upload.svg"); /* Assumindo que upload.svg está na pasta img */
+    content: "";
+    background-image: url("./img/upload.svg");
     background-size: contain;
     background-repeat: no-repeat;
     display: inline-block;
-    width: 18px;
-    height: 18px;
+    width: 15px;
+    height: 15px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    margin-left: 8px
 }
 
 .container-imagem-nome {
@@ -300,185 +234,4 @@ textarea {
     gap: 8px;
     color: var(--secondary-color);
     font-size: 15px;
-    align-items: center; /* Alinha os itens verticalmente */
-    margin-top: 8px; /* Espaço acima do nome do arquivo */
-    width: 100%; /* Ocupa a largura total */
-    justify-content: center; /* Centraliza o nome do arquivo */
-}
-
-.container-imagem-nome span {
-    cursor: pointer; /* Indica que é clicável */
-    color: #FF6B6B; /* Uma cor para o ícone de exclusão */
-    font-weight: bold;
-    font-size: 16px;
-}
-
-/* RESPONSIVIDADE */
-
-/* Para Tablets e Desktops Menores */
-@media (max-width: 1200px) {
-    body {
-        flex-direction: column; /* Empilha o aside e o main verticalmente */
-        padding: 24px; /* Ajusta o padding geral */
-        gap: 24px;
-        align-items: center; /* Centraliza os containers empilhados */
-    }
-
-    aside {
-        width: 100%; /* Largura total para a barra lateral */
-        padding: 24px 16px;
-        order: -1; /* Move o aside para o topo */
-    }
-
-    .lista-links {
-        flex-direction: row; /* Exibe os links horizontalmente */
-        justify-content: center;
-        gap: 24px;
-        margin-top: 24px;
-    }
-
-    .lista-links li a {
-        font-size: 18px; /* Ajusta o tamanho da fonte para telas menores */
-    }
-
-    .link-destaque {
-        padding: 10px 20px; /* Ajusta o padding */
-    }
-
-    main {
-        flex-direction: column; /* Empilha o formulário e a imagem verticalmente */
-        padding: 24px;
-        gap: 24px;
-        width: 100%; /* Ocupa a largura total */
-        max-width: 800px; /* Limita a largura máxima para melhor legibilidade */
-    }
-
-    .container-descricao {
-        width: 100%; /* Largura total para a seção do formulário */
-    }
-
-    .container-imagem {
-        height: auto; /* Permite que o container de imagem ajuste a altura */
-        min-height: 250px; /* Altura mínima para o container de imagem */
-        padding: 20px;
-    }
-
-    .container-imagem img {
-        max-height: 200px; /* Ajusta a altura máxima para a pré-visualização da imagem */
-    }
-
-    .container-botoes {
-        flex-direction: column; /* Empilha os botões verticalmente */
-        gap: 16px;
-    }
-
-    .container-botoes button {
-        width: 100%; /* Largura total para os botões */
-    }
-}
-
-/* Para Dispositivos Móveis */
-@media (max-width: 768px) {
-    body {
-        padding: 16px;
-        gap: 16px;
-    }
-
-    aside {
-        padding: 16px 10px;
-    }
-
-    .lista-links {
-        gap: 16px;
-        margin-top: 16px;
-    }
-
-    .lista-links li a {
-        font-size: 16px;
-        gap: 5px;
-    }
-
-    .lista-links li img {
-        width: 24px; /* Ajusta o tamanho do ícone para celular */
-        height: 24px;
-    }
-
-    .link-destaque {
-        padding: 8px 16px;
-    }
-
-    main {
-        padding: 16px;
-        gap: 16px;
-    }
-
-    h2 {
-        font-size: 22px;
-        margin-bottom: 24px;
-    }
-
-    form {
-        gap: 16px;
-    }
-
-    form div label {
-        font-size: 16px;
-        margin-bottom: 6px;
-    }
-
-    form div input,
-    textarea {
-        padding: 6px 12px;
-        font-size: 14px;
-    }
-
-    form div input {
-        height: 36px;
-    }
-
-    textarea {
-        height: 120px;
-    }
-
-    .lista-tags li {
-        font-size: 12px;
-        padding: 3px 6px;
-        gap: 6px;
-    }
-
-    .container-botoes {
-        gap: 12px;
-    }
-
-    .container-botoes button {
-        padding: 10px 20px;
-        font-size: 16px;
-    }
-
-    .botao-descartar::after,
-    .botao-publicar::after,
-    .container-upload-imagem button::after {
-        width: 16px;
-        height: 16px;
-    }
-
-    .container-imagem {
-        padding: 16px;
-        min-height: 200px;
-    }
-
-    .container-imagem img {
-        max-height: 150px;
-    }
-
-    .container-upload-imagem button {
-        margin: 12px 0 6px 0;
-        padding: 10px;
-        font-size: 16px;
-    }
-
-    .container-imagem-nome {
-        font-size: 13px;
-        gap: 6px;
-    }
 }
