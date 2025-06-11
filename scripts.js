@@ -18,7 +18,7 @@ function lerConteudoDoArquivo(arquivo) {
     });
 }
 
-const imagemPrincipal = document.getElementById('main-imagem');
+const imagemPrincipal = document.querySelector('main-imagem');
 const nomeDaImagem = document.querySelector('.container-imagem-nome p');
 
 inptUpload.addEventListener('change', async (event) => {
