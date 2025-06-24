@@ -38,24 +38,25 @@ inputUpload.addEventListener("change", async (evento) => {
 })
 
 const inputTags = document.getElementById("input-tags");
-const listaDeTags = document.querySelector(".tags-list");
+const listaTags = document.getElementById("lista-tags");
 
 
 
-listaDeTags.addEventListener("click", (evento) => {
+listaTags.addEventListener("click", (evento) => {
     if (evento.target.classList.contains("remove-tag")) {
-        const tagParaRemover = evento.target.parentElement;
-        listaDeTags.removeChild(tagParaRemover);
-    }   
-});
+        const tagQueQueremosRemover = evento.target.parentElement;
+        listaTags.removeChild(tagQueQueremosRemover);
+    }
+})
 
 const tagsDisponiveis = ["Front-end", "Programação", "Data Science", "Full-stack", "HTML", "CSS", "JavaScript"];
-async function verificatTagsDisponiveis(tagTexto) {
- return new Promise((resolve) => {
-    setTimeout(() => {
-        resolve(tagsDisponiveis.includes(tagTexto));
-    }, 1000);
- })
+
+async function verificaTagsDisponiveis(tagTexto) {
+    return new Promise((resolve) => {
+        setTimeout(() => {
+            resolve(tagsDisponiveis.includes(tagTexto));
+        }, 1000)
+    })
 }
 
 inputTags.addEventListener("keypress", async (evento) => {
@@ -79,4 +80,51 @@ inputTags.addEventListener("keypress", async (evento) => {
             }
         }
     }
+})
+
+const botaoPublicar = document.querySelector(".botao-publicar");
+
+async function publicarProjeto(nomeDoProjeto, descricaoProjeto, tagsProjeto) {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            const deuCerto = Math.random() > 0.5;
+            if (deuCerto) {
+                resolve("Projeto publicado com sucesso.")
+            } else {
+                reject("Erro ao publicar o projeto.")
+            }
+        }, 2000)
+    })
+}
+
+botaoPublicar.addEventListener("click", async (evento) => {
+    evento.preventDefault();
+
+    const nomeDoProjeto = document.getElementById("nome").value;
+    const descricaoDoProjeto = document.getElementById("descricao").value;
+    const tagsProjeto = Array.from(listaTags.querySelectorAll("p")).map((tag) => tag.textContent);
+
+    try {
+        const resultado = await publicarProjeto(nomeDoProjeto, descricaoDoProjeto, tagsProjeto);
+        console.log(resultado);
+        alert("Deu tudo certo!")
+    } catch (error) {
+        console.log("Deu errado: ", error)
+        alert("Deu tudo errado!");
+    }
+
+})
+
+const botaoDescartar = document.querySelector(".botao-descartar");
+
+botaoDescartar.addEventListener("click", (evento) => {
+    evento.preventDefault();
+
+    const formulario = document.querySelector("form");
+    formulario.reset();
+
+    imagemPrincipal.src = "./img/imagem1.png";
+    nomeDaImagem.textContent = "image_projeto.png";
+
+    listaTags.innerHTML = "";
 })
